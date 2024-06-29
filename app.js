@@ -12,7 +12,7 @@ app.use(cookieParser());
 
 // Allow requests from all origins with specified options
 const corsOptions = {
-  origin: "https://667fbcd9cd6edbc48d2866b3--ssportfoliolive.netlify.app",
+  origin: "https://667fc5bb65c136f0461cd1b9--portfoliosudipto.netlify.app",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true, // enable passing of cookies and authorization headers
 };
