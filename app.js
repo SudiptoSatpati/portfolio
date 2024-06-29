@@ -10,6 +10,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(cookieParser());
 
+<<<<<<< HEAD
 // Allow requests from all origins with specified options
 const corsOptions = {
   origin: "https://667fbcd9cd6edbc48d2866b3--ssportfoliolive.netlify.app",
@@ -19,10 +20,21 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+=======
+// API routes
+>>>>>>> abcf205034bc15ca7449832bc421f6e2f7663ccc
 app.use("/api/v1", userRouter);
 
-app.use(express.static(path.resolve("./frontend/dist")));
+// Serve static files (if needed for specific routes)
+// For example, if you have some static files in the backend
+app.use(express.static(path.resolve("./public")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve("./frontend/dist/index.html"));
+// Placeholder route for frontend handling
+app.get("/", (req, res) => {
+  res.send("Backend is running."); // Placeholder response
+});
+
+// Error handler for unmatched routes
+app.use((req, res) => {
+  res.status(404).send("Not Found");
 });
