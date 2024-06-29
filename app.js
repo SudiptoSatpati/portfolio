@@ -9,10 +9,19 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(cookieParser());
 
+// API routes
 app.use("/api/v1", userRouter);
 
-app.use(express.static(path.resolve("./frontend/dist")));
+// Serve static files (if needed for specific routes)
+// For example, if you have some static files in the backend
+app.use(express.static(path.resolve("./public")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve("./frontend/dist/index.html"));
+// Placeholder route for frontend handling
+app.get("/", (req, res) => {
+  res.send("Backend is running."); // Placeholder response
+});
+
+// Error handler for unmatched routes
+app.use((req, res) => {
+  res.status(404).send("Not Found");
 });
