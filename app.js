@@ -10,7 +10,6 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(cookieParser());
 
-<<<<<<< HEAD
 // Allow requests from all origins with specified options
 const corsOptions = {
   origin: "https://667fbcd9cd6edbc48d2866b3--ssportfoliolive.netlify.app",
@@ -22,7 +21,6 @@ app.use(cors(corsOptions));
 
 =======
 // API routes
->>>>>>> abcf205034bc15ca7449832bc421f6e2f7663ccc
 app.use("/api/v1", userRouter);
 
 // Serve static files (if needed for specific routes)
